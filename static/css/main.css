@@ -53,12 +53,17 @@ header .content {
 main {
     width: 900px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     margin: 0 auto;
 }
 
-main .content {
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content .posts {
     width: 550px;
     height: 500px;
     border: 1px solid #DBDBDB;
@@ -95,3 +100,33 @@ main .content {
 }
 
 /** story block end **/
+
+
+/* Profile page */
+main .about-user {
+    width: 800px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.profile-img {
+    width: 170px;
+}
+
+.profile-info {
+    width: 430px;
+    margin-top: 30px;
+}
+
+.friend-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 80px;
+}
+.followings-row {
+    display: flex;
+    justify-content: space-between;
+}

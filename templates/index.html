@@ -26,9 +26,18 @@
 </div>
 <main>
     <div class="content">
-        <h1>main page</h1>
+        <div class="posts">
+            <h1>main page</h1>
+        </div>
+        <div class="sidebar">
+            <h6 class="sidebar-title">Following</h6>
+            {% for follow in follows %}
+            <a href="{% url 'users:profile' follow.to_user.id %}" class="friend-item">
+                <img src="{{follow.to_user.profile_image.url}}" alt="" class="friend-img" >
+                <p class="friend-name">{{follow.to_user}}</p>
+            </a>
+            {% endfor %}
+        </div>
     </div>
-    {% block sidebar %}
-    {% endblock sidebar %}
 </main>
 {% endblock content %}

@@ -1,9 +1,9 @@
-from django.urls import path
-
-from follows.views import display_followers
-
-app_name = 'follows'
-
-urlpatterns = [
-    path('', display_followers, name='index'),
-]
+# from django.urls import path
+#
+# from users.views import index
+#
+# app_name = 'follows'
+#
+# urlpatterns = [
+#     path('', index, name='index'),
+# ]
