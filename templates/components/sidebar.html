@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block sidebar %}
+    <div class="sidebar">
+        <h6 class="sidebar-title">Following</h6>
+        {% for follow in follows %}
+        <a href="#" class="friend-item">
+            <img src="{{follow.to_user.profile_image.url}}" alt="" class="friend-img" >
+            <p class="friend-name">{{follow.to_user}}</p>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock sidebar %}

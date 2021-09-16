@@ -1,0 +1,97 @@
+body {
+    background-color: #FAFAFA;
+}
+
+/** header **/
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #DBDBDB;
+    background-color: #FFF;
+}
+
+header .content {
+    width: 900px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.profile {
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    font-size: 20px;
+}
+
+.dropdown-menu hr {
+    margin: 3px !important;
+}
+
+/* dropdown */
+.dropdown-text {
+    margin-left: 5px;
+}
+
+.logout-item {
+}
+/* dropdown end */
+/** header end **/
+
+/** main **/
+main {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+main .content {
+    width: 550px;
+    height: 500px;
+    border: 1px solid #DBDBDB;
+    background-color: #FFF;
+}
+/** main end **/
+
+/** story block **/
+.story-block {
+    width: 900px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto 30px;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+}
+
+.story-block .arrow {
+    color: black;
+}
+
+.ps-story {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid pink;
+
+}
+
+.ps-story:hover {
+    border: 1px solid #DA2E78;
+}
+
+/** story block end **/

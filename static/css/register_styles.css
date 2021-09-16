@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap');
+
+body {
+    width: 100%;
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-content {
+    width: 400px;
+    margin-top: 30px;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
