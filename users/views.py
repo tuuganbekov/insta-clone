@@ -55,6 +55,8 @@ def index(request):
 @login_required(login_url='users:login')
 def cabinet(request):
     user = User.objects.get(id=request.user.id)
+    followings = user.friends_list.count()
+    followers = user.friends.all().count()
     return render(request, 'accounts/cabinet.html', locals())
 
 
@@ -62,6 +64,8 @@ def cabinet(request):
 def profile(request, id):
     user = User.objects.get(id=id)
     is_friend = False
+    followings = user.friends_list.count()
+    followers = user.friends.all().count()
     if request.user.friends_list.filter(id=user.id).exists():
         is_friend = True
     return render(request, 'accounts/profile.html', locals())
