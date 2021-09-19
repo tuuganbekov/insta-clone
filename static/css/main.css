@@ -130,3 +130,31 @@ main .about-user {
     display: flex;
     justify-content: space-between;
 }
+
+/* Login page */
+.login-form {
+    width: 900px;
+    height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.login-form .form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
