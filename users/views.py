@@ -48,7 +48,7 @@ def logout_user(request):
 @login_required(login_url='users:login')
 def index(request):
     current_user = request.user
-    friends = current_user.friends.all()
+    friends = current_user.friends_list.all()
     return render(request, 'index.html', locals())
 
 
@@ -61,7 +61,20 @@ def cabinet(request):
 @login_required(login_url='users:login')
 def profile(request, id):
     user = User.objects.get(id=id)
+    is_friend = False
+    if request.user.friends_list.filter(id=user.id).exists():
+        is_friend = True
     return render(request, 'accounts/profile.html', locals())
+
+
+def follow_operation(request, id):
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        if 'follow' in request.POST.keys():
+            request.user.friends_list.add(user)
+        else:
+            request.user.friends_list.remove(user)
+    return redirect('users:profile', id=user.id)
 
 
 # Search view

@@ -27,6 +27,15 @@ header .content {
     text-decoration: none;
 }
 
+header .search .search-form {
+    display: flex !important;
+}
+
+header .search .btn {
+    padding: 0 15px !important;
+    margin-left: 5px !important;
+}
+
 .profile {
     width: 80px;
     display: flex;
@@ -109,6 +118,20 @@ main .about-user {
     display: flex;
     flex-direction: row;
 
+}
+
+.username-row {
+    display: flex;
+}
+
+.username-row .btn {
+    position: relative;
+    top: 3px;
+    padding: 0 15px !important;
+}
+
+.username-row h3 {
+    margin-right: 15px;
 }
 
 .profile-img {
