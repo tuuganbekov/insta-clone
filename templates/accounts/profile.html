@@ -10,20 +10,23 @@
     <div class="profile-info">
       <div class="username-row">
         <h3>{{user.username}}</h3>
-        {% if is_friend %}
-        <form action="{% url 'users:follow_operation' user.id %}" method="POST">
-          {% csrf_token %}
-          <button type="submit" name="unfollow" class="btn btn-secondary">Unfollow</button>
-        </form>
+        {% if user == request.user %}
         {% else %}
-          <form action="{% url 'users:follow_operation' user.id %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" name="follow" class="btn btn-primary">Follow</button>
-          </form>
+          {% if is_friend %}
+            <form action="{% url 'users:follow_operation' user.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" name="unfollow" class="btn btn-secondary">Unfollow</button>
+            </form>
+            {% else %}
+              <form action="{% url 'users:follow_operation' user.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" name="follow" class="btn btn-primary">Follow</button>
+              </form>
+            {% endif %}
         {% endif %}
       </div>
       <div class="followings-row">
-        <div><b>100</b> posts</div>
+        <div><b>{{posts.count}}</b> posts</div>
         <div><b>{{followers}}</b> followers</div>
         <div><b>{{followings}}</b> following</div>
       </div>

@@ -1,38 +1,40 @@
+from random import shuffle
+from itertools import chain
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
-from users.decorators import unauthenticated_user
+# from users.decorators import unauthenticated_user
 
 from users.forms import CreateUserForm
-from follows.models import Followings
+from posts.models import Post
 
 
 User = get_user_model()
 
 
 # Create your views here.
-@unauthenticated_user
+# @unauthenticated_user
 def register_page(request):
     form = CreateUserForm
 
     if request.method == "POST":
-        form = CreateUserForm(request.POST)
+        form = CreateUserForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.profile_image = form.cleaned_data['profile_image']
+            user.save()
             return redirect('users:login')
 
     context = {'form': form}
     return render(request, 'accounts/register.html', locals())
 
 
-@unauthenticated_user
+# @unauthenticated_user
 def login_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
             login(request, user)
             return redirect('users:index')
@@ -49,6 +51,10 @@ def logout_user(request):
 def index(request):
     current_user = request.user
     friends = current_user.friends_list.all()
+    my_posts = Post.objects.filter(author=request.user).order_by('-created_date')
+    friends_posts = Post.objects.filter(author__in=friends).order_by('-created_date')
+    posts = list(chain(friends_posts, my_posts))
+    shuffle(posts)
     return render(request, 'index.html', locals())
 
 
@@ -57,6 +63,7 @@ def cabinet(request):
     user = User.objects.get(id=request.user.id)
     followings = user.friends_list.count()
     followers = user.friends.all().count()
+    posts = Post.objects.filter(author=request.user)
     return render(request, 'accounts/cabinet.html', locals())
 
 
@@ -66,6 +73,7 @@ def profile(request, id):
     is_friend = False
     followings = user.friends_list.count()
     followers = user.friends.all().count()
+    posts = Post.objects.filter(author=user)
     if request.user.friends_list.filter(id=user.id).exists():
         is_friend = True
     return render(request, 'accounts/profile.html', locals())

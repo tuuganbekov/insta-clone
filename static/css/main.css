@@ -74,9 +74,29 @@ main {
 
 .content .posts {
     width: 550px;
-    height: 500px;
     border: 1px solid #DBDBDB;
     background-color: #FFF;
+}
+
+.post-item {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.posts .post-item__img {
+    width: 450px;
+}
+
+.posts .post-item__description {
+    width: 90%;
+    text-align: center;
+}
+
+.post-item__author {
+    text-decoration: none;
 }
 /** main end **/
 
@@ -148,11 +168,29 @@ main .about-user {
     height: 150px;
     border-radius: 50%;
     margin-right: 80px;
+    border: 4px solid pink;
 }
 .followings-row {
     display: flex;
     justify-content: space-between;
 }
+
+.users-posts {
+    width: 850px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid #DBDBDB;
+    background-color: #FFF;
+    padding: 20px;
+}
+
+
+.post {
+    width: 250px;
+}
+
 
 /* Login page */
 .login-form {

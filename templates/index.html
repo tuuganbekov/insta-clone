@@ -27,7 +27,16 @@
 <main>
     <div class="content">
         <div class="posts">
-            <h1>main page</h1>
+            {% for post in posts %}
+                <div class="post-item">
+                    {% if post.post_image %}
+                        <img src="{{post.post_image.url}}" alt="post image" class="post-item__img">
+                    {% endif %}
+                    <h4 class="post-item__title">{{post.title}}</h4>
+                    <p class="post-item__description">{{post.description}}</p>
+                    <a href="{% url 'users:profile' post.author.id %}" class="post-item__author">{{post.author}}</a>
+                  </div>
+            {% endfor %}
         </div>
         <div class="sidebar">
             <h6 class="sidebar-title">Following</h6>
