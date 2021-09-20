@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="login-form">
-    <h1>Instagram</h1>
     <form action="" method="POST" class="form">
+        <h1>Instagram</h1>
         {% csrf_token %}
         <input type="text" placeholder="Enter Username" name="username" class="username-input" required>
         <input type="password" placeholder="Enter Password" name="password" class="password-input" required>
 
-        <button type="submit" class="submit-btn">Login</button>
+        <button type="submit" class="submit-btn btn btn-primary">Login</button>
         <p>or</p>
         <a href="{% url 'users:register' %}">sign up</a>
 

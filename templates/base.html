@@ -12,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/search-results.css' %}">
 </head>
 <body>
-    <header>
+    {% if user.is_authenticated%}
+        <header>
         <div class="content">
             <div class="logo">
                 <a href="{% url 'users:index' %}"><i class="bi bi-instagram"></i> Instagram</a>
@@ -42,6 +43,7 @@
             </div>
         </div>
     </header>
+    {% endif %}
 {% block content %}
 {% endblock content %}
 

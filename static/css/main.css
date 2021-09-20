@@ -201,21 +201,81 @@ main .about-user {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+
 }
 
 .login-form .form {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
+
+.username-input {
+    margin-bottom: 10px;
+}
+
+.password-input {
+    margin-bottom: 10px;
+}
+
+.login-form .form p {
+    margin: 3px 0;
 }
 
 
+/* Registration page */
+.register-block {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
+
+.register-form h1 {
+    text-align: center;
+}
+
+.register-form .input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
 
 
+.register-form .input-row p {
+    margin: 3px 0;
+}
 
+.register-form .input-row:last-child {
+    text-align: center;
+}
 
-
-
+/* Create new post */
+.create-post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-form {
+    width: 550px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
 
 
 

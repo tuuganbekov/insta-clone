@@ -1,16 +1,41 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="" method="POST" class="register-form" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p}}
+{% block content %}
+    <main class="register-block">
+        <form action="" method="POST" class="register-form" enctype="multipart/form-data">
+            <h1>Instagram</h1>
+            {% csrf_token %}
 
-    <button type="submit">Submit</button>
-</form>
-</body>
-</html>
+            <div class="input-row">
+                {{ form.username.label }}
+                {{ form.username }}
+            </div>
+
+            <div class="input-row">
+                {{ form.email.label }}
+                {{ form.email }}
+            </div>
+
+            <div class="input-row">
+                {{ form.profile_image.label }}
+                {{ form.profile_image }}
+            </div>
+
+            <div class="input-row">
+                {{ form.password1.label }}
+                {{ form.password1 }}
+            </div>
+
+            <div class="input-row">
+                {{ form.password2.label }}
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <div class="input-row">
+                <p>or</p>
+                <a href="{% url 'users:login' %}">login</a>
+            </div>
+        </form>
+    </main>
+{% endblock content %}
