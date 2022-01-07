@@ -27,6 +27,15 @@ header .content {
     text-decoration: none;
 }
 
+header .search .search-form {
+    display: flex !important;
+}
+
+header .search .btn {
+    padding: 0 15px !important;
+    margin-left: 5px !important;
+}
+
 .profile {
     width: 80px;
     display: flex;
@@ -65,9 +74,37 @@ main {
 
 .content .posts {
     width: 550px;
-    height: 500px;
-    border: 1px solid #DBDBDB;
+}
+
+.post-item {
+    margin-bottom: 20px;
     background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #DBDBDB;
+}
+.post-item .likes {
+    display: flex;
+    flex-direction: row;
+}
+
+.posts .post-item__img {
+    width: 450px;
+}
+
+.posts .post-item__description {
+    width: 90%;
+    text-align: center;
+}
+
+.post-item__author {
+    text-decoration: none;
+}
+
+.post-item .like-btn-red {
+    color: red;
 }
 /** main end **/
 
@@ -111,6 +148,20 @@ main .about-user {
 
 }
 
+.username-row {
+    display: flex;
+}
+
+.username-row .btn {
+    position: relative;
+    top: 3px;
+    padding: 0 15px !important;
+}
+
+.username-row h3 {
+    margin-right: 15px;
+}
+
 .profile-img {
     width: 170px;
 }
@@ -125,8 +176,114 @@ main .about-user {
     height: 150px;
     border-radius: 50%;
     margin-right: 80px;
+    border: 4px solid pink;
 }
 .followings-row {
     display: flex;
     justify-content: space-between;
 }
+
+.users-posts {
+    width: 850px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid #DBDBDB;
+    background-color: #FFF;
+    padding: 20px;
+}
+
+
+.post {
+    width: 250px;
+}
+
+
+/* Login page */
+.login-form {
+    width: 900px;
+    height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-form .form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
+
+.username-input {
+    margin-bottom: 10px;
+}
+
+.password-input {
+    margin-bottom: 10px;
+}
+
+.login-form .form p {
+    margin: 3px 0;
+}
+
+
+/* Registration page */
+.register-block {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
+
+.register-form h1 {
+    text-align: center;
+}
+
+.register-form .input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+
+.register-form .input-row p {
+    margin: 3px 0;
+}
+
+.register-form .input-row:last-child {
+    text-align: center;
+}
+
+/* Create new post */
+.create-post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-form {
+    width: 550px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border: 1px solid #DBDBDB;
+    padding: 30px;
+}
+
+
+

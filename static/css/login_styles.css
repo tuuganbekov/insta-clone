@@ -20,6 +20,10 @@ body {
     align-items: center;
 }
 
+.login-form .form p {
+    text-align: center;
+}
+
 .input-container {
     margin-bottom: 10px;
 }
@@ -63,7 +67,8 @@ body {
 
 
 /* REGISTRATION PAGE */
-
+.register-form {
+}
 
 
 

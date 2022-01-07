@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    <main>
+        <div class="search-content">
+            <h3>Search results...</h3>
+            {% for user in users %}
+                <a href="{% url 'users:profile' user.id %}" class="user-item">
+                    <img src="{{user.profile_image.url}}" alt="" class="user-img" >
+                    <p class="user-name">{{user.username}}</p>
+                </a>
+            {% endfor  %}
+        </div>
+    </main>
+{% endblock content %}

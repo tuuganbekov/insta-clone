@@ -1,0 +1,36 @@
+/* Search results page */
+.search-content {
+    width: 100%;
+    height: auto;
+    border: 1px solid #DBDBDB;
+    background-color: #FFF !important;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    text-align: center;
+    color: #0D6EFD;
+}
+
+.search-content .user-item {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.search-content .user-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.user-name {
+    margin-top: 5px;
+}
+
+.user-item:hover {
+    background-color: #516EFD;
+    color: #FFF;
+    border-radius: 10px;
+}

@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="" method="POST" >
-    {% csrf_token %}
-    <input type="text" placeholder="Enter Username" name="username" required>
+{% extends 'base.html' %}
 
-    <input type="password" placeholder="Enter Password" name="password" required>
+{% block content %}
+<div class="login-form">
+    <form action="" method="POST" class="form">
+        <h1>Instagram</h1>
+        {% csrf_token %}
+        <input type="text" placeholder="Enter Username" name="username" class="username-input" required>
+        <input type="password" placeholder="Enter Password" name="password" class="password-input" required>
 
-    <button type="submit">Login</button>
+        <button type="submit" class="submit-btn btn btn-primary">Login</button>
+        <p>or</p>
+        <a href="{% url 'users:register' %}">sign up</a>
 
-  </form>
-</body>
-</html>
+    </form>
+</div>
+{% endblock content %}

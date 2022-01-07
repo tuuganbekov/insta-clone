@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 <main>
   <div class="about-user">
     <div class="profile-img">
-      <img src="{{user.profile_image.url}}" alt="" class="friend-img" >
+      {%if user.profile_image%}
+        <img src="{{user.profile_image.url}}" alt="" class="friend-img" >
+      {%else%}
+        <div class="friend-img">
+          no photo
+        </div>
+      {% endif %}
     </div>
     <div class="profile-info">
       <div class="username-row">
         <h3>{{user.username}}</h3>
       </div>
       <div class="followings-row">
-        <div><b>100</b> posts</div>
-        <div><b>18k</b> followers</div>
-        <div><b>100</b> following</div>
+        <div><b>{{posts.count}}</b> posts</div>
+        <div><b>{{followers}}</b> followers</div>
+        <div><b>{{followings}}</b> following</div>
       </div>
       <div class="description-row">
         <div class="full-name">{{user.firstname}} {{user.lastname}}</div>
         <div class="user-info">{{user.info}}</div>
       </div>
     </div>
+  </div>
+  <div class="users-posts">
+    {% for post in posts %}
+      <div class="post">
+        <img src="{{post.post_image.url}}" alt="post image" width="250" height="150" class="post-img">
+        <h4 class="post-title">{{post.title}}</h4>
+        <p class="post-description">{{post.description}}</p>
+      </div>
+    {% endfor %}
   </div>
 </main>
 {% endblock content %}
