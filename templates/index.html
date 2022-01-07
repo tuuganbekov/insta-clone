@@ -11,30 +11,37 @@
 
 {% block content %}
 
-<div class="story-block">
-    <a href="#" class="arrow"><i class="bi bi-arrow-left-circle-fill"></i></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="ps-story"></a>
-    <a href="#" class="arrow"><i class="bi bi-arrow-right-circle-fill"></i></a>
-</div>
+<!--<div class="story-block">-->
+<!--    <a href="#" class="arrow"><i class="bi bi-arrow-left-circle-fill"></i></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="ps-story"></a>-->
+<!--    <a href="#" class="arrow"><i class="bi bi-arrow-right-circle-fill"></i></a>-->
+<!--</div>-->
 <main>
-    <div class="content">
+    <div class="content" style="margin-top: 20px">
         <div class="posts">
             {% for post in posts %}
                 <div class="post-item">
-                    {% if post.post_image %}
-                        <img src="{{post.post_image.url}}" alt="post image" class="post-item__img">
+                    {% if post.post.post_image %}
+                        <img src="{{post.post.post_image.url}}" alt="post image" class="post-item__img">
                     {% endif %}
-                    <h4 class="post-item__title">{{post.title}}</h4>
-                    <p class="post-item__description">{{post.description}}</p>
-                    <a href="{% url 'users:profile' post.author.id %}" class="post-item__author">{{post.author}}</a>
+                    <h4 class="post-item__title">{{post.post.title}}</h4>
+                    <p class="post-item__description">{{post.post.description}}</p>
+                    <a href="{% url 'users:profile' post.post.author.id %}" class="post-item__author">{{post.post.author}}</a>
+                    <div class="likes">
+                        {% if post.is_user_liked %}
+                            <a href="#"><i class="bi bi-heart-fill like-btn-red" onclick="toggleHeartColor(event)"></i></a> <p>{{post.count}} likes</p>
+                        {% else %}
+                            <a href="#"><i class="bi bi-heart" onclick="toggleHeartColor(event)"></i></a> <p>{{post.count}} likes</p>
+                        {% endif %}
+                    </div>
                   </div>
             {% endfor %}
         </div>
@@ -49,4 +56,19 @@
         </div>
     </div>
 </main>
+
+<script>
+    function toggleHeartColor(event) {
+        icon = event.target
+        if (icon.classList.contains("bi-heart")) {
+            icon.classList.remove("bi-heart")
+            icon.classList.add("bi-heart-fill")
+        } else {
+            icon.classList.remove("bi-heart-fill")
+            icon.classList.add("bi-heart")
+        }
+        console.log(icon.classList)
+        icon.classList.toggle("like-btn-red");
+    }
+</script>
 {% endblock content %}

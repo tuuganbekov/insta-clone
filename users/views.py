@@ -51,10 +51,17 @@ def logout_user(request):
 def index(request):
     current_user = request.user
     friends = current_user.friends_list.all()
-    my_posts = Post.objects.filter(author=request.user).order_by('-created_date')
+    my_posts = Post.objects.filter(author=current_user).order_by('-created_date')
     friends_posts = Post.objects.filter(author__in=friends).order_by('-created_date')
-    posts = list(chain(friends_posts, my_posts))
-    shuffle(posts)
+    all_posts = list(chain(friends_posts, my_posts))
+    posts = []
+    for p in all_posts:
+        posts.append({
+                        "is_user_liked": True,
+                        "post": p,
+                        "count": p.liked_users.all().count()
+                     })
+    # shuffle(posts)
     return render(request, 'index.html', locals())
 
 
